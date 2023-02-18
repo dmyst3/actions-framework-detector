@@ -4,5 +4,16 @@ description: 'Re-Usable action to detect a framework'
 runs:
   using: "composite"
   steps:
-    - run: echo hello
+    - run: |
+          case "${{ toJson(github.workspace) }}" in
+        *"package.json"*)
+          echo "Running package action"
+          ;;
+        *"composer.json"*)
+          echo "Running composer action"
+          ;;
+        *)
+          echo "No package or composer file detected"
+          ;;
+      esac
       shell: bash
