@@ -10,7 +10,8 @@ runs:
     - run: |
         if [[ -f "package.json" ]]; then
           echo "Package.json file exists. Running action."
-          run: dmyst3/composite-install-nodejs@main
+          npm install @actions/github
+          npx @actions/github composite run: dmyst3/composite-install-nodejs@main
         else
           echo "Package.json file does not exist."
         fi
