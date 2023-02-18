@@ -4,6 +4,9 @@ description: 'Re-Usable action to detect a framework'
 runs:
   using: "composite"
   steps:
+    - run: ls -la
+      shell: bash
+      
     - run: |
         if [[ -f "package.json" ]]; then
           echo "Package.json file exists. Running action."
