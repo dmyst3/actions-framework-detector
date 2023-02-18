@@ -9,6 +9,5 @@ runs:
           echo "Package.json file exists. Running action."
         else
           echo "Package.json file does not exist."
-          exit 1
         fi
       shell: bash
