@@ -1,1 +1,8 @@
-name: Re-Usable action to detect a framework
+name: Framework Detector
+description: 'Re-Usable action to detect a framework'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo hello
+      shell: bash
