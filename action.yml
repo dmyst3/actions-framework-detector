@@ -5,15 +5,10 @@ runs:
   using: "composite"
   steps:
     - run: |
-          case "${{ toJson(github.workspace) }}" in
-        *"package.json"*)
-          echo "Running package action"
-          ;;
-        *"composer.json"*)
-          echo "Running composer action"
-          ;;
-        *)
-          echo "No package or composer file detected"
-          ;;
-      esac
+        if [[ -f "package.json" ]]; then
+          echo "Package.json file exists. Running action."
+        else
+          echo "Package.json file does not exist."
+          exit 1
+        fi
       shell: bash
